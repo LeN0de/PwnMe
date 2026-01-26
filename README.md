@@ -1,1 +1,1 @@
-# PwnMe
+Designed and developed a Capture The Flag (CTF) competition platform from scratch using Node.js, HTML, CSS, and JavaScript only. Built both the backend and frontend without frameworks, focusing on performance, security, and clean architecture. Implemented user handling, challenge management, scoring logic, and a responsive interface to deliver a smooth competitive experience.
