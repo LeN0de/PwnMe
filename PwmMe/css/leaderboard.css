@@ -1,0 +1,323 @@
+:root { /* färger till webbsidan */
+    --primary-color: #4040da;
+    --box-color: #6495ed;
+    --text-color: #ffffff;
+    --accent-color: #ffa4ff;
+
+}
+/* styling till logon */
+.logo { 
+    margin: 0;
+    font-size: 60px;
+    margin-left: 10px;
+}
+
+.logo_img {
+    width: 70px
+}
+
+.logo_align {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+/*^ styling till logon ^*/
+
+
+/* för webbsidans navigation */
+.border {
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    height: 70px;
+    justify-content: space-between;
+}
+
+.dropdown {
+    overflow: hidden;
+    display: none;
+    align-content: center;
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin-right: 25px;
+}
+  
+.dropdown .dropbtn {
+    color: black;
+    text-align: center;
+    padding: 13px 16px;
+    background-color: transparent;
+    text-decoration: none;
+    font-size: 26px;
+    border: none;
+    outline: none;
+    margin: 0;
+}
+
+*::selection {
+    color:#000;
+    background-color: #ddd;
+}
+
+.content:hover, .dropdown:hover .dropbtn {
+    transition-duration: 0.175s;
+    box-shadow: 5px 5px;
+    background-color: #FFE4C4;
+}
+
+.dropdown-nav:hover, .dropdown-btn-nav:hover {
+    transition-duration: 0.175s;
+    box-shadow: 5px 5px;
+    background-color: #FFE4C4;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content .content {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content .content:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.topnav {
+    overflow: hidden;
+    display: flex;
+    background-color: #f1f1f1;
+    padding: 10px;
+    gap: 20px;
+}
+
+.topnav .btnnav {
+    float: left;
+    color: black;
+    text-align: center;
+    background-color: transparent;
+    padding: 13px 16px;
+    text-decoration: none;
+    font-size: 26px;
+    border: none;
+}
+
+.topnav .btnnav:hover {
+    transition-duration: 0.175s;
+    box-shadow: 5px 5px;
+    background-color: #FFE4C4;
+}
+/*^ för webbsidans navigation ^*/
+
+
+
+html, body {
+    margin: 0;
+    font-family: monospace;
+    font-weight: bolder;
+    font-size: 20px;
+    background-color: var(--primary-color);
+}
+
+/* antal pages styling */
+.pages {
+    font-family: monospace;
+    font-weight: bolder;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+
+.pages_list_align {
+    display: flex;
+    gap: 15px;
+}
+
+.page-list {
+    margin-top: 18.64px;
+}
+/*^ antal pages styling ^*/
+
+/* leaderboard styling */
+.leaderboard-align {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    overflow-x: auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+.leaderboard {
+    width: 100%;
+    max-width: 1200px;
+    min-width: 300px;
+}
+
+.leaderboard-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* användaren leaderboard styling */
+.align {
+    border: inset;
+    border-width: 1px;
+    border-bottom-width: 0;
+    display: flex;
+    border-bottom-style: inset;
+    border-width: 1px;
+    justify-content: center;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.position {
+    width: 10%;
+    min-width: 50px;
+}
+
+.username {
+    width: 20%;
+    min-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.score {
+    width: 10%;
+    min-width: 60px;
+}
+
+.flags {
+    width: 40%;
+    min-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.time {
+    width: 20%;
+    min-width: 120px;
+}
+
+.accountbtn {
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+.accountbtn:hover {
+    color:whitesmoke;
+}
+/*^ användaren leaderboard styling ^*/
+/*^ leaderboard styling ^*/
+
+
+/* för att anpassa styling till display */
+@media (max-width: 873px) {
+
+    .border {
+        gap: 0;
+    }
+    .topnav {
+        display: none;
+    }
+    .dropdown {
+        display: block;
+    }
+    .dropdown-content {
+        min-width: 130px;
+    }
+    .dropdown .dropbtn {
+        font-size: 20px; 
+    }
+}
+@media (max-width: 425px) {
+    .logo {
+        font-size: 40px;
+    }
+
+    .dropdown-content {
+        min-width: 110px;
+    }
+    .dropdown .dropbtn {
+        font-size: 15px; 
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    html, body {
+        font-size: 16px;
+    }
+    
+    .leaderboard-align {
+        padding: 10px;
+    }
+    
+    .align {
+        padding: 6px;
+    }
+    
+    .flags {
+        display: none;
+    }
+    
+    .time {
+        width: 30%;
+    }
+}
+
+@media (max-width: 800px) {
+    html, body {
+        font-size: 16px;
+    }
+    
+    .leaderboard-row {
+        border-bottom-width: 2px;
+    }
+    
+    .align {
+        justify-content: flex-start;
+        border-bottom-width: 1px;
+    }
+    
+    .time {
+        display: none;
+    }
+    
+    .position {
+        width: 17.5%;
+    }
+
+    .username {
+        width: 60%;
+    }
+
+    .score {
+        width: 22.5%
+    }
+
+    .position, .username, .score{
+        padding-left: 5px;
+        text-align: left;
+    }
+}

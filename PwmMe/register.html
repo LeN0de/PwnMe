@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css"> <!-- css styling filer -->
+    <link rel="shortcut icon">
+    <title>Hacking Tävling</title>
+    <script src="js/register.js"></script> <!-- impoterad javascript filer -->
+</head>
+<body>
+    <div class="form-back"> <!-- main page -->
+        <div class="container form_box">
+            <div class="form">
+                <h2 class="text ">Registrera</h2>
+                <input autocomplete="off" type="username" id="username" name="username" class="input font" placeholder="username">
+                <input autocomplete="off" type="password" id="password" name="password" class="input font" placeholder="password">
+                <button class="btn btn-accent pull-right font" id="register" onclick="register()">Registrera</button>
+            </div>
+            <div style="margin-top: 2.5vh;" class="align_info">
+                <a href="/" class="font text-color">Har du redan ett konto? Logga in här.</a>
+                <p type="text" class="font" id="info_register"></p>
+            </div>
+        </div>
+    </div>
+</body>

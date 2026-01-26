@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style_menu.css"> <!-- css styling filer -->
+    <link rel="shortcut icon">
+    <title>Hacking Tävling</title>
+    <script src="js/account.js"></script> <!-- impoterad javascript filer -->
+    <script src="js/account_mod.js"></script>
+    <script src="/js/UserUpdate.js"></script>
+</head>
+<body>
+    <div class="border"> <!-- navigation panel -->
+        <div class="dropdown-nav" id="dropdown">
+            <button class="dropbtn">Meny ▼</button>
+            <div class="dropdown-content-nav" id="dropdown_content_menu">
+              <a class="content" href="/hacking.html" id="account_dropdown">Hacking</a>
+              <a class="content" href="/leaderboard.html?page=1">Topplista</a>
+              <a class="content" href="/account.html">Konto</a>
+              <a class="content" href="/change_password.html">Byt lösenord</a>
+              <a class="content" href="/account.html">Visa konto</a>
+              <a class="content" href="/logout">Logga ut</a>
+            </div>
+        </div>
+        <div class="topnav" id="nav_menu">
+            <button class="btnnav" onclick="location.href='/hacking.html'" id="account_btn">Hacking</button>
+            <button class="btnnav" onclick="location.href='/leaderboard.html?page=1'">Topplista</button>
+            <div class="dropdown-nav dropdown-nav-menu" style="display: block;margin-bottom: 5px;padding: 0;margin-right: 0; ">
+                <button class="dropbtn dropdown-btn-nav-menu" style="padding-bottom: 0;">Konto ▼</button>
+                <div class="dropdown-content-nav" id="dropdown_nav_menu">
+                  <a class="content" href="/change_password.html">Byt lösenord</a>
+                  <a class="content" href="/account.html">Visa konto</a>
+                </div>
+            </div> 
+            <button class="btnnav" onclick="location.href='/logout'">Logga ut</button>
+        </div>
+        <div class="logo_align">
+            <h2 class="logo">PwnMe</h2>
+            <img class="logo_img" src="/images/logo.png">
+        </div>
+    </div>
+    <div class="container" style="padding: 0;"> <!-- main page -->
+        <div id="main_page" class="flag-box" style="display: flex;flex-direction: row;align-items: center;border-radius: 0;">
+            <div class="flags-grid-account-info"> <!-- allmän konto info dvs plats, poäng, antal flaggor klarat, tid, role och användarnamn-->
+                <div class="flag-head" style="justify-content: center;">
+                    <h1 class="text account_username" id="username"></h1>
+                    <p class="text account_role" style="font-size: 20px;" >role: <span id="user_role"></span></p>
+                    <span class="difficulty-hard text" style="font-size: 35px;display: none;" id="account_status_profile"></span>
+                </div>
+                <div class="flag-box" style="background-color: #3333e7">
+                    <h1 class="text" style="font-size: 22px;">Plats</h1>
+                    <span class="text font" style="font-size: 35px" id="leaderboard_position"></span>
+                </div>
+                <div class="flag-box" style="background-color: #3333e7">
+                    <h1 class="text" style="font-size: 22px;">Antal poäng</h1>
+                    <span class="text font" style="font-size: 35px" id="total_points"></span>
+                </div>
+                <div class="flag-box" style="background-color: #3333e7">
+                    <h1 class="text" style="font-size: 22px;">Antal flaggor klarat</h1>
+                    <span class="text font" style="font-size: 35px" id="flags_completed"></span>
+                </div>
+                <div class="flag-box" style="background-color: #3333e7;display: none;" id="time_completion_element">
+                    <h1 class="text" style="font-size: 22px;">Tid klarat</h1>
+                    <span class="text font" style="font-size: 19px;height: 100%" id="time_completion"></span>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="min-height: 60vh;"> <!-- användarens flaggor -->
+            <div class="flags-grid-account" style="flex-grow: 0;" id="flags">
+            </div>
+        </div>
+        <div id="page_count-container" class="page-list" style="min-height:3.2vh;"> <!-- page counter -->
+        </div>
+    </div>
+</body>

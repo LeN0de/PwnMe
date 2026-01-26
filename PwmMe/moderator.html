@@ -1,0 +1,118 @@
+<html lang="sv"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style_menu.css"> <!-- css styling filer -->
+    <link rel="stylesheet" href="/css/admin_menu.css">
+    <link rel="shortcut icon">
+    <title>Hacking Tävling</title>
+    <script src="/js/moderator.js"></script> <!-- impoterad javascript filer -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/account_mod.js"></script>
+    <script src="/js/UserUpdate.js"></script>
+</head>
+<body>
+    <div class="border"> <!-- navigation panel -->
+        <div class="dropdown-nav" id="dropdown">
+            <button class="dropbtn">Meny ▼</button>
+            <div class="dropdown-content-nav" id="dropdown_content_menu">
+            <a class="content" href="/hacking.html" id="account_dropdown">Hacking</a>
+            <a class="content" href="/leaderboard.html?page=1">Topplista</a>
+            <a class="content" href="/account.html">Konto</a>
+            <a class="content" href="/admin/admin_panel.html">admin panel</a>
+            <a class="content" href="/change_password.html">Byt lösenord</a>
+            <a class="content" href="/account.html">Visa konto</a>
+            <a class="content" href="/logout">Logga ut</a>
+            </div>
+        </div>
+        <div class="topnav" id="nav_menu">
+            <button class="btnnav" onclick="location.href='/hacking.html'" id="account_btn">Hacking</button>
+            <button class="btnnav" onclick="location.href='/leaderboard.html?page=1'">Topplista</button>
+            <div class="dropdown-nav dropdown-nav-menu" style="display: block;margin-bottom: 5px;padding: 0;margin-right: 0; ">
+                <button class="dropbtn dropdown-btn-nav-menu" style="padding-bottom: 0;">Konto ▼</button>
+                <div class="dropdown-content-nav" id="dropdown_nav_menu">
+            <a class="content" href="/admin/admin_panel.html">admin panel</a>
+            <a class="content" href="/change_password.html">Byt lösenord</a>
+            <a class="content" href="/account.html">Visa konto</a></div>
+            </div> 
+            <button class="btnnav" onclick="location.href='/logout'">Logga ut</button>
+        </div>
+        <div class="logo_align">
+            <h2 class="logo">PwnMe</h2>
+            <img class="logo_img" src="/images/logo.png">
+        </div>
+    </div>
+    <div class="container" style="align-items:center;padding:20px;"> <!-- main page -->
+        <div class="menu-flags" id="edit_accounts"> <!-- container för att regiera konton -->
+            <button onclick="close_box('edit_accounts')" class="close-category-detail">×</button>
+            <div class="menu-align" id="menu-container" > 
+                <div class="flags-grid" id="flag-grid"> <!-- container för kontons info dvs  -->
+                    <div class="flag-box" style="width: 100%; background-color: var(--primary-color);">
+                        <div class="flag-head">
+                            <h1 class="text">Redigera konton</h1>
+                        </div>
+                        <div class="flag-input edit_user_box">
+                            <input autocomplete="off" type="username" id="username_input" name="username_input" class="input font" placeholder="username" oninput="searchUsers(this.value)">
+                            <div style="width: 100%"><div id="searchResultsUser" class="search-results-dropdown"></div></div>
+                            <button id="submit_get_user" class="btn" style="width: fit-content;"onclick="get_user_info()">Få användarens info</button>
+                        </div>
+                        <div class="flag-info" style="align-items: flex-start;" id="account_info_box">
+                        </div>
+                    </div>
+                </div>
+                <div id="right-side-div-container">
+                    <div id="right_side">
+                        <div class="flag-box" id="edit-account-options-container">
+                            <div class="flag-input edit_user_box flags-grid" id="dropdown-container">
+                                <div class="user_edit_dropdown" id="edit-status-container" style="width:fit-content;"> <!-- ändra konto status -->
+                                    <p class="text" id="status_text"></p>
+                                    <div class="dropdown_status">
+                                        <label class="dropdown_label_status" id="UserStatusSelected">Status</label>
+                                        <div class="dropdown_list_status">
+                                            <div class="dropdown_option_status" id="Aktiv" data-value="false">false</div>
+                                            <div class="dropdown_option_status" id="Spärra" data-value="suspended">suspended</div>
+                                            <div class="dropdown_option_status" id="Bannlysa" data-value="banned">banned</div>
+                                        </div>
+                                        <input type="hidden" name="selectedstatus" id="selectedstatus">
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="user_edit_container user_edit_grid" style="justify-content: center;"> <!-- konto checkbox -->
+                                    <div class="user_edit_checkbox">
+                                        <label for="clear_user_time" class="text">Rensa användarens tid</label><br>
+                                        <input type="checkbox" id="clear_user_time" name="clear_user_time" value="true"> <!-- rensa kontons tid -->
+                                    </div>
+                                    <div class="user_edit_checkbox" id="clear_user_flags_div">
+                                        <label for="clear_user_flags" class="text">Rensa användarens flaggor</label><br>
+                                        <input type="checkbox" id="clear_user_flags" name="clear_user_flags" value="true"> <!-- rensa alla kontons flaggor -->
+                                    </div>
+                                    <div class="user_edit_checkbox">
+                                        <label for="logout_user" class="text">logga ut användaren</label><br>
+                                        <input type="checkbox" id="logout_user" name="logout_user" value="true"> <!-- radera alla sessions från konton -->
+                                    </div>
+                                </div>
+                                <div style="display: flex;justify-content: center;"> <!-- Tillämpa ändringar -->
+                                <button id="submit" class="btn" style="width: fit-content;"onclick="apply_user_changes()">Tillämpa ändringar</button>
+                                </div>
+                            </div>
+                            <div class="flags-grid-account" id="flags_element"> <!-- kontots flaggor -->
+                            </div>
+                        </div>
+                        <div id="page_count-container" class="page-list" id="page-list-user-flags"> <!-- page counter -->
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="menu-align">
+            <div class="flags-grid" style="max-width: 75vw;" id="categories">
+                <div class="flag-box flag-head category-box"> <!-- alla konto options för moderator -->
+                    <div class="category-info-aign">             
+                        <button class="btn-category" onclick="view_box('edit_accounts')"">Edit accounts 🡢</button>
+                        <span class="text">Edit account roles, status, flags etc </span>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

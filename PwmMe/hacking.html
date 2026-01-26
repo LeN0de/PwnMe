@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style_menu.css"> <!-- css styling filer -->
+    <link rel="shortcut icon">
+    <title>Hacking Tävling</title>
+    <script src="/js/menu.js"></script> <!-- impoterad javascript filer -->
+    <script src="/js/account_mod.js"></script>
+    <script src="/js/UserUpdate.js"></script>
+</head>
+<body>
+    <div class="border"> <!-- navigation panel -->
+        <div class="dropdown-nav" id="dropdown">
+            <button class="dropbtn">Meny ▼</button>
+            <div class="dropdown-content-nav" id="dropdown_content_menu">
+              <a class="content" href="/hacking.html" id="account_dropdown">Hacking</a>
+              <a class="content" href="/leaderboard.html?page=1">Topplista</a>
+              <a class="content" href="/account.html">Konto</a>
+              <a class="content" href="/change_password.html">Byt lösenord</a>
+              <a class="content" href="/account.html">Visa konto</a>
+              <a class="content" href="/logout">Logga ut</a>
+            </div>
+        </div>
+        <div class="topnav" id="nav_menu">
+            <button class="btnnav" onclick="location.href='/hacking.html'" id="account_btn">Hacking</button>
+            <button class="btnnav" onclick="location.href='/leaderboard.html?page=1'">Topplista</button>
+            <div class="dropdown-nav dropdown-nav-menu" style="display: block;margin-bottom: 5px;padding: 0;margin-right: 0; ">
+                <button class="dropbtn dropdown-btn-nav-menu" style="padding-bottom: 0;">Konto ▼</button>
+                <div class="dropdown-content-nav" id="dropdown_nav_menu">
+                  <a class="content" href="/change_password.html">Byt lösenord</a>
+                  <a class="content" href="/account.html">Visa konto</a>
+                </div>
+            </div> 
+            <button class="btnnav" onclick="location.href='/logout'">Logga ut</button>
+        </div>
+        <div class="logo_align">
+            <h2 class="logo">PwnMe</h2>
+            <img class="logo_img" src="/images/logo.png">
+        </div>
+    </div>
+    <div class="container" style="align-items:center"> <!-- main page -->
+        <div class="menu-flags" id="menu-flags"> <!-- kategori info för att visa upp alla flaggor som tillhör en viss kategori -->
+            <button onclick="close_category_detail()" class="close-category-detail">&#215;</button>
+            <div class="flags-grid" id="view_category_details" style="padding:20px; align-items: start; align-content: normal;">
+            </div>
+        </div>
+        <div class="menu-align">
+            <div class="flags-grid" style="max-width: 75vw;" id="categories"> <!-- alla kategorier (max 9 får laddas) -->
+            </div>
+            <div>
+                <div id="page_count-container" class="page-list" style="min-height:3.2vh;min-height:3.2vh;display: flex;justify-content: center;">
+                </div>
+                <div class="completion-message"> <!-- page counter -->
+                    <p class="font" id="website_message"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

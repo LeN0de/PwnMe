@@ -1,0 +1,344 @@
+<html lang="sv"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style_menu.css"> <!-- css styling filer -->
+    <link rel="stylesheet" href="/css/admin_menu.css">
+    <link rel="shortcut icon">
+    <title>Hacking Tävling</title>
+    <script src="/js/admin.js"></script> <!-- impoterad javascript filer -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/account_mod.js"></script>
+    <script src="/js/admin_account.js"></script>
+    <script src="/js/admin_flag.js"></script>
+    <script src="/js/UserUpdate.js"></script>
+    <script src="/js/admin_CreateFlag.js"></script>
+</head>
+<body>
+    <div class="border"> <!-- navigation panel -->
+        <div class="dropdown-nav" id="dropdown">
+            <button class="dropbtn">Meny ▼</button>
+            <div class="dropdown-content-nav" id="dropdown_content_menu">
+            <a class="content" href="/hacking.html" id="account_dropdown">Hacking</a>
+            <a class="content" href="/leaderboard.html?page=1">Topplista</a>
+            <a class="content" href="/account.html">Konto</a>
+            <a class="content" href="/admin/admin_panel.html">admin panel</a>
+            <a class="content" href="/change_password.html">Byt lösenord</a>
+            <a class="content" href="/account.html">Visa konto</a>
+            <a class="content" href="/logout">Logga ut</a>
+            </div>
+        </div>
+        <div class="topnav" id="nav_menu">
+            <button class="btnnav" onclick="location.href='/hacking.html'" id="account_btn">Hacking</button>
+            <button class="btnnav" onclick="location.href='/leaderboard.html?page=1'">Topplista</button>
+            <div class="dropdown-nav dropdown-nav-menu" style="display: block;margin-bottom: 5px;padding: 0;margin-right: 0; ">
+                <button class="dropbtn dropdown-btn-nav-menu" style="padding-bottom: 0;">Konto ▼</button>
+                <div class="dropdown-content-nav" id="dropdown_nav_menu">
+            <a class="content" href="/admin/admin_panel.html">admin panel</a>
+            <a class="content" href="/change_password.html">Byt lösenord</a>
+            <a class="content" href="/account.html">Visa konto</a></div>
+            </div> 
+            <button class="btnnav" onclick="location.href='/logout'">Logga ut</button>
+        </div>
+        <div class="logo_align"> 
+            <h2 class="logo">PwnMe</h2>
+            <img class="logo_img" src="/images/logo.png">
+        </div>
+    </div>
+    <div class="container" style="align-items:center;padding:20px;"> <!-- main page -->
+        <div class="menu-flags" id="edit_flags"> <!-- regiera flaggor -->
+            <button onclick="close_box('edit_flags')" class="close-category-detail">×</button>
+            <div class="menu-align" id="menu-container">
+                <div class="flags-grid" id="flag-grid">
+                    <div class="flag-box" style="width: 100%; background-color: var(--primary-color);"> <!-- flaggans info  -->
+                        <div class="flag-head">
+                            <h1 class="text">Redigera flagga</h1>
+                        </div>
+                        <div class="flag-input edit_user_box">
+                            <input autocomplete="off" type="username" id="flag_input" name="flagname_input" class="input font" placeholder="Flag namn" oninput="SearchFlags(this.value)">
+                            <div style="width: 100%"><div id="searchResultsFlag" class="search-results-dropdown"></div></div>
+                            <button id="submit_get_flag" class="btn" style="width: fit-content;" onclick="get_flag_info()">Få flag info</button>
+                        </div>
+                        <div class="flag-info" style="align-items: flex-start;" id="flag_info_box">
+                            <p class="text" id="flag_infotext"></p>
+                            <p class="text" id="flag"></p>
+                            <p class="text" id="flag_updated"></p>
+                            <p class="text" id="flag_created"></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="right-side-div-container">
+                    <div id="right_side">
+                        <div class="flag-box" id="edit-account-options-container">
+                            <div class="flag-input edit_user_box flags-grid" style="display: flex;flex-direction: column;" id="dropdown-container">
+                                <div style="display: flex;flex-direction: column;width: 100%;">
+                                    <div class="flag-head">
+                                        <h1 class="text" id="flag_title">Flagga info</h1>
+                                    </div>
+                                    <div id="row-1-flag"> 
+                                        <div>
+                                            <div style="gap: 10px;display: flex;flex-direction: column;"> <!-- flaggans namn -->
+                                                <div class="flag-head">
+                                                    <p class="text">Namn</p>
+                                                </div>
+                                                <div class="flag-input edit_user_box">
+                                                    <input autocomplete="off" type="username" id="flag_name" name="flag_name" class="input font" placeholder="Flag namn">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="gap: 10px;display: flex;flex-direction: column;"> <!-- flaggans url -->
+                                            <div class="flag-head">
+                                                <p class="text">URL</p>
+                                            </div>
+                                            <div class="flag-input edit_user_box">
+                                                <input autocomplete="off" type="username" id="flag_url" name="flag_url" class="input font" placeholder="URL">
+                                            </div>
+                                        </div>
+                                        <div style="gap: 10px;display: flex;flex-direction: column;"> <!-- flaggans kategori -->
+                                            <div class="flag-head">
+                                                <p class="text">kategori</p>
+                                            </div>
+                                            <div class="flag-input edit_user_box">
+                                                <input autocomplete="off" type="username" id="flag_category" name="flag_category" class="input font" placeholder="Category" oninput="searchEditCategories(this.value)">
+                                                <div style="width: 100%"><div id="searchResultsEditCategory" class="search-results-dropdown"></div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="row-2-flag"> 
+                                        <div class="user_edit_dropdown" style="flex-direction: column; gap: 10px;" id="edit-difficulty-container"> <!-- flaggans svårighet -->
+                                            <p class="text">Svårighet</p>
+                                            <div class="dropdown_edit_difficulty">
+                                                <label class="dropdown_label_edit_difficulty" id="flag_edit_difficulty">Välj</label>
+                                                <div class="dropdown_list_edit_difficulty">
+                                                    <div class="dropdown_option_edit_difficulty" data-value="easy">easy</div>
+                                                    <div class="dropdown_option_edit_difficulty" data-value="medium">medium</div>
+                                                    <div class="dropdown_option_edit_difficulty" data-value="hard">hard</div>
+                                                    <div class="dropdown_option_edit_difficulty" data-value="insane">insane</div>
+                                                </div>
+                                                <input type="hidden" name="selectedEditDifficulty" id="selectedEditDifficulty">
+                                            </div>
+                                        </div>
+                                        <div style="gap: 10px;display: flex;flex-direction: column;"> <!-- flaggans poäng -->
+                                            <div class="flag-head">
+                                                <p class="text">Poäng</p>
+                                            </div>
+                                            <div class="flag-input edit_user_box">
+                                                <input autocomplete="off" type="username" id="flag_points" name="flag_points" class="input font" placeholder="Poäng">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="margin-top:10px;">
+                                        <div style="gap: 10px;display: flex;flex-direction: column;"> <!-- flaggans beskrivning -->
+                                            <div class="flag-head">
+                                                <p class="text">Beskrivning</p>
+                                            </div>
+                                            <div class="flag-input edit_user_box"> 
+                                                <textarea style="width:75%;" maxlength="150" autocomplete="off" type="username" id="flag_description" name="flagdescription_input" class="input font" placeholder="Beskrivning" oninput="DescriptionLenghtCheck('DescriptionEditFlag', this.id)"></textarea>
+                                                <p class="text" id="DescriptionEditFlag">0/150</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex;justify-content: center; margin-top:10px;"> <!-- tillämpa flaggans ändringar -->
+                                        <button id="submit" class="btn" style="width: fit-content;" onclick="apply_flag_changes()">Tillämpa ändringar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-flags" id="edit_accounts"> <!-- regiera konton -->
+            <button onclick="close_box('edit_accounts')" class="close-category-detail">×</button>
+            <div class="menu-align" id="menu-container" >
+                <div class="flags-grid" id="flag-grid"> <!-- kontots info -->
+                    <div class="flag-box" style="width: 100%; background-color: var(--primary-color);">
+                        <div class="flag-head">
+                            <h1 class="text">Redigera konton</h1>
+                        </div>
+                        <div class="flag-input edit_user_box">
+                            <input autocomplete="off" type="username" id="username_input" name="username_input" class="input font" placeholder="username" oninput="searchUsers(this.value)">
+                            <div style="width: 100%"><div id="searchResultsUser" class="search-results-dropdown"></div></div>
+                            <button id="submit_get_user" class="btn" style="width: fit-content;"onclick="get_user_info()">Få användarens info</button>
+                        </div>
+                        <div class="flag-info" style="align-items: flex-start;" id="account_info_box">
+                        </div>
+                    </div>
+                </div>
+                <div id="right-side-div-container">
+                    <div id="right_side">
+                        <div class="flag-box" id="edit-account-options-container">
+                            <div class="flag-input edit_user_box flags-grid" id="dropdown-container">
+                                <div class="user_edit_dropdown_box">
+                                    <div class="user_edit_dropdown" id="edit-role-container">
+                                        <p class="text" id="role_text"></p>
+                                        <div class="dropdown_role"> <!-- kontots role -->
+                                            <label class="dropdown_label_role" id="UserRoleSelected">Role</label>
+                                            <div class="dropdown_list_role">
+                                                <div class="dropdown_option_role" id="user" data-value="user">user</div>
+                                                <div class="dropdown_option_role" id="moderator" data-value="moderator">moderator</div>
+                                                <div class="dropdown_option_role" id="admin" data-value="admin">admin</div>
+                                                <div class="dropdown_option_role" id="rickroll" data-value="rickroll">rickroll</div>
+                                            </div>
+                                            <input type="hidden" name="selectedRole" id="selectedRole">
+                                        </div>
+                                    </div>
+                                </div class="user_edit_dropdown_box" style="min-width: 320px;"> <!-- kontons status -->
+                                    <div class="user_edit_dropdown" id="edit-status-container">
+                                        <p class="text" id="status_text"></p>
+                                        <div class="dropdown_status">
+                                            <label class="dropdown_label_status" id="UserStatusSelected">Status</label>
+                                            <div class="dropdown_list_status">
+                                                <div class="dropdown_option_status" id="Aktiv" data-value="false">false</div>
+                                                <div class="dropdown_option_status" id="Spärra" data-value="suspended">suspended</div>
+                                                <div class="dropdown_option_status" id="Bannlysa" data-value="banned">banned</div>
+                                            </div>
+                                            <input type="hidden" name="selectedstatus" id="selectedstatus">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="user_edit_container user_edit_grid" style="justify-content: center;">
+                                    <div class="user_edit_checkbox"> <!-- rensa användarens tid-->
+                                        <label for="clear_user_time" class="text">Rensa användarens tid</label><br>
+                                        <input type="checkbox" id="clear_user_time" name="clear_user_time" value="true">
+                                    </div>
+                                    <div class="user_edit_checkbox" id="clear_user_flags_div"> <!-- rensa användarens flaggor -->
+                                        <label for="clear_user_flags" class="text">Rensa användarens flaggor</label><br>
+                                        <input type="checkbox" id="clear_user_flags" name="clear_user_flags" value="true">
+                                    </div>
+                                    <div class="user_edit_checkbox"> <!-- rensa alla sessions till kontot -->
+                                        <label for="logout_user" class="text">logga ut användaren</label><br>
+                                        <input type="checkbox" id="logout_user" name="logout_user" value="true">
+                                    </div>
+                                </div>
+                                <div style="display: flex;justify-content: center;"> <!-- tillämpa ändringar -->
+                                <button id="submit" class="btn" style="width: fit-content;"onclick="apply_user_changes()">Tillämpa ändringar</button>
+                                </div>
+                            </div>
+                            <div class="flags-grid-account" id="flags_element"> <!-- användarens flaggor -->
+                            </div>
+                        </div>
+                        <div id="page_count-container" class="page-list" id="page-list-user-flags"> <!-- page counter -->
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        <div class="menu-flags" id="create_flag"> <!-- skapa flagga -->
+            <button onclick="close_box('create_flag')" class="close-category-detail">×</button>
+            <div class="menu-align" id="menu-container" style="justify-content: center;">
+                <div class="flags-grid" id="flag-grid-create-flag"> <!-- skapad flaggans info -->
+                    <div class="flag-box" style="width: 100%; background-color: var(--primary-color);">
+                        <div class="flag-head">
+                            <h1 class="text">Flaggans info</h1>
+                        </div>
+                        <div class="flag-info" style="align-items: flex-start;" id="flag_info_box">
+                            <p class="text" id="created_flag"></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="right-side-div-container">
+                    <div id="right_side" style="align-items: center;">
+                        <div class="flag-box" id="edit-account-options-container">
+                            <div class="flag-input edit_user_box flags-grid" style="display: flex;flex-direction: column;" id="dropdown-container">
+                                <div style="display: flex;flex-direction: column;width: 100%;">
+                                    <div class="flag-head">
+                                        <h1 class="text" id="flag_title">Skapa flagga</h1>
+                                    </div>
+                                    <div id="row-1-flag">
+                                        <div> <!-- flaggans namn -->
+                                            <div style="gap: 10px;display: flex;flex-direction: column;">
+                                                <div class="flag-head">
+                                                    <p class="text">Namn</p>
+                                                </div>
+                                                <div class="flag-input edit_user_box">
+                                                    <input autocomplete="off" type="username" id="flag_name_create" name="flag_name_create" class="input font" placeholder="Flag namn">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="gap: 10px;display: flex;flex-direction: column;"> <!-- flaggans url -->
+                                            <div class="flag-head">
+                                                <p class="text">URL</p>
+                                            </div>
+                                            <div class="flag-input edit_user_box">
+                                                <input autocomplete="off" type="username" id="flag_url_create" name="flag_url_create" class="input font" placeholder="URL">
+                                            </div>
+                                        </div>
+                                        <div style="gap: 10px;display: flex;flex-direction: column;"> <!-- flaggans kategori-->
+                                            <div class="flag-head">
+                                                <p class="text">Hitta/skapa kategori</p>
+                                            </div>
+                                            <div class="flag-input edit_user_box">
+                                                <input autocomplete="off" type="username" id="flag_category_create" name="flag_category_create" class="input font" placeholder="Category" oninput="searchCategories(this.value)">
+                                                <div style="width: 100%"><div id="searchResultsCategory" class="search-results-dropdown"></div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="row-2-flag">
+                                        <div class="user_edit_dropdown" style="flex-direction: column; gap: 10px;" id="difficulty-container">
+                                            <p class="text">Svårighet</p> <!-- flaggans svårighet-->
+                                            <div class="dropdown_difficulty">
+                                                <label class="dropdown_label_difficulty" id="flag_difficulty">Välj</label>
+                                                <div class="dropdown_list_difficulty">
+                                                    <div class="dropdown_option_difficulty" data-value="easy">easy</div>
+                                                    <div class="dropdown_option_difficulty" data-value="medium">medium</div>
+                                                    <div class="dropdown_option_difficulty" data-value="hard">hard</div>
+                                                    <div class="dropdown_option_difficulty" data-value="insane">insane</div>
+                                                </div>
+                                                <input type="hidden" name="selectedDifficulty" id="selectedDifficulty">
+                                            </div>
+                                        </div>
+                                        <div style="gap: 10px;display: flex;flex-direction: column;"> <!-- flaggans poäng -->
+                                            <div class="flag-head">
+                                                <p class="text">Poäng</p>
+                                            </div>
+                                            <div class="flag-input edit_user_box">
+                                                <input autocomplete="off" type="username" id="flag_points_create" name="flag_points_create" class="input font" placeholder="Poäng">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="margin-top:10px;"> <!-- flaggans beskivning -->
+                                        <div style="gap: 10px;display: flex;flex-direction: column;">
+                                            <div class="flag-head">
+                                                <p class="text">Beskrivning</p>
+                                            </div>
+                                            <div class="flag-input edit_user_box"> 
+                                                <textarea style="width:75%;" maxlength="150" autocomplete="off" type="username" id="flag_description_create" name="flagdescription_input" class="input font" placeholder="Beskrivning" oninput="DescriptionLenghtCheck('DescriptionCreateFlag', this.id)"></textarea>
+                                                <p class="text" id="DescriptionCreateFlag">0/150</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex;justify-content: center; margin-top:10px;"> <!-- skapa flagga-->
+                                        <button id="submit_create_flag" class="btn" style="width: fit-content;" onclick="create_flag()">Skapa flagga</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text" id="created_flag_infotext"></p> <!-- request status info -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-align"> <!-- alla konto options för admin -->
+            <div class="flags-grid" style="max-width: 75vw;" id="categories">
+                <div class="flag-box flag-head category-box">
+                    <div class="category-info-aign">           
+                        <button class="btn-category" onclick="view_box('create_flag')">Create flag 🡢</button> <!-- skapa flagga -->
+                        <span class="text">create flags</span>
+                    </div> 
+                </div>
+                <div class="flag-box flag-head category-box">
+                    <div class="category-info-aign">             
+                        <button class="btn-category" onclick="view_box('edit_accounts')"">Edit accounts 🡢</button> <!-- regiera konton -->
+                        <span class="text">Edit account roles, status, flags etc </span>
+                    </div> 
+                </div>
+                <div class="flag-box flag-head category-box">
+                    <div class="category-info-aign">           
+                        <button class="btn-category" onclick="view_box('edit_flags')">Edit flags 🡢</button> <!-- regiera flaggor -->
+                        <span class="text">Add, remove or edit flags and categories</span>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

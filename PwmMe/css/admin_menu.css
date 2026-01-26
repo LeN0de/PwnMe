@@ -1,0 +1,698 @@
+* { /* box-sizing för alla element */
+    box-sizing: border-box;
+}
+  
+a { 
+    text-decoration: none;
+    color: #379937;
+}
+/* dropdown css styling*/
+.dropdown {
+    width: 15vw;
+    position: relative;
+    font-size: 14px;
+    color: #333;
+    
+  
+.dropdown-list {
+    padding: 12px;
+    background: #fff;
+    position: relative;
+    top: 30px;
+    left: 2px;
+    right: 2px;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .15);
+    transform-origin: 50% 0;
+    transform: scale(1, 0);
+    transition: transform .15s ease-in-out .15s;
+    max-height: 30vh;
+    overflow-y: scroll;
+}
+    
+.dropdown-option {
+    display: block;
+    padding: 8px 12px;
+    opacity: 0;
+    transition: opacity .15s ease-in-out;
+}
+    
+.dropdown-label {
+    display: block;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    line-height: 1;
+    cursor: pointer;
+      
+    &:before {
+        content: '▼';
+        float: right;
+    }
+}
+    
+&.on {
+    .dropdown-list {
+        transform: scale(1, 1);
+        transition-delay: 0s;
+        
+        .dropdown-option {
+            opacity: 1;
+            transition-delay: .2s;
+        }
+    }
+      
+    .dropdown-label:before {
+        content: '▲';
+    }
+}
+/* checkbox styling för dropbox*/
+[type="checkbox"] {
+      position: relative;
+      top: -1px;
+      margin-right: 4px;
+}
+}
+
+.user_edit_dropdown_box {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 2.5vw;
+}
+
+.user_edit_dropdown {
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+}
+
+.dropdown_role {
+    width: 120px;
+    position: static;
+    font-size: 14px;
+    color: #333;
+}
+
+.dropdown_list_role {
+    padding: 12px;
+    background: #fff;
+    position: absolute;
+    width:120px;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .15);
+    transform-origin: 50% 0;
+    transform: scale(1, 0);
+    transition: transform .15s ease-in-out .15s;
+    max-height: 30vh;
+}
+
+.dropdown_option_role {
+    display: block;
+    padding: 8px 12px;
+    opacity: 0;
+    transition: opacity .15s ease-in-out;
+    cursor: pointer;
+}
+
+.dropdown_option_role:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown_option_role.selected {
+    background-color: #e0e0e0;
+    font-weight: bold;
+}
+
+.dropdown_label_role {
+    display: block;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.dropdown_label_role:before {
+    content: '▼';
+    float: right;
+}
+
+.dropdown_role.on .dropdown_list_role {
+    transform: scale(1, 1);
+    transition-delay: 0s;
+}
+
+.dropdown_role.on .dropdown_option_role {
+    opacity: 1;
+    transition-delay: .2s;
+}
+
+.dropdown_role.on .dropdown_label_role:before {
+    content: '▲';
+}
+
+
+.dropdown_status {
+    width: 120px;
+    position: static;
+    font-size: 14px;
+    color: #333;
+}
+
+.dropdown_list_status {
+    padding: 12px;
+    background: #fff;
+    position: absolute;
+    width:120px;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .15);
+    transform-origin: 50% 0;
+    transform: scale(1, 0);
+    transition: transform .15s ease-in-out .15s;
+    max-height: 30vh;
+}
+
+.dropdown_option_status {
+    display: block;
+    padding: 8px 0px;
+    opacity: 0;
+    transition: opacity .15s ease-in-out;
+    cursor: pointer;
+}
+
+.dropdown_option_status:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown_option_status.selected {
+    background-color: #e0e0e0;
+    font-weight: bold;
+}
+
+.dropdown_label_status {
+    display: block;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.dropdown_label_status:before {
+    content: '▼';
+    float: right;
+}
+
+.dropdown_status.on .dropdown_list_status {
+    transform: scale(1, 1);
+    transition-delay: 0s;
+}
+
+.dropdown_status.on .dropdown_option_status {
+    opacity: 1;
+    transition-delay: .2s;
+}
+
+.dropdown_status.on .dropdown_label_status:before {
+    content: '▲';
+}
+
+/* Fix the dropdown_role styles */
+.dropdown_edit_difficulty {
+    width: 180px;
+    position: static;
+    font-size: 14px;
+    color: #333;
+}
+
+.dropdown_list_edit_difficulty {
+    padding: 12px;
+    background: #fff;
+    position: absolute;
+    width:180px;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .15);
+    transform-origin: 50% 0;
+    transform: scale(1, 0);
+    transition: transform .15s ease-in-out .15s;
+    max-height: 30vh;
+}
+
+.dropdown_option_edit_difficulty {
+    display: block;
+    padding: 8px 0px;
+    opacity: 0;
+    transition: opacity .15s ease-in-out;
+    cursor: pointer;
+}
+
+.dropdown_option_edit_difficulty:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown_option_edit_difficulty.selected {
+    background-color: #e0e0e0;
+    font-weight: bold;
+}
+
+.dropdown_label_edit_difficulty {
+    display: block;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.dropdown_label_edit_difficulty:before {
+    content: '▼';
+    float: right;
+}
+
+.dropdown_edit_difficulty.on .dropdown_list_edit_difficulty {
+    transform: scale(1, 1);
+    transition-delay: 0s;
+}
+
+.dropdown_edit_difficulty.on .dropdown_option_edit_difficulty {
+    opacity: 1;
+    transition-delay: .2s;
+}
+
+.dropdown_edit_difficulty.on .dropdown_label_edit_difficulty:before {
+    content: '▲';
+}
+
+/* Fix the dropdown_role styles */
+.dropdown_difficulty {
+    width: 180px;
+    position: static;
+    font-size: 14px;
+    color: #333;
+}
+
+.dropdown_list_difficulty {
+    padding: 12px;
+    background: #fff;
+    position: absolute;
+    width:180px;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .15);
+    transform-origin: 50% 0;
+    transform: scale(1, 0);
+    transition: transform .15s ease-in-out .15s;
+    max-height: 30vh;
+}
+
+.dropdown_option_difficulty {
+    display: block;
+    padding: 8px 0px;
+    opacity: 0;
+    transition: opacity .15s ease-in-out;
+    cursor: pointer;
+}
+
+.dropdown_option_difficulty:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown_option_difficulty.selected {
+    background-color: #e0e0e0;
+    font-weight: bold;
+}
+
+.dropdown_label_difficulty {
+    display: block;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.dropdown_label_difficulty:before {
+    content: '▼';
+    float: right;
+}
+
+.dropdown_difficulty.on .dropdown_list_difficulty {
+    transform: scale(1, 1);
+    transition-delay: 0s;
+}
+
+.dropdown_difficulty.on .dropdown_option_difficulty {
+    opacity: 1;
+    transition-delay: .2s;
+}
+
+.dropdown_difficulty.on .dropdown_label_difficulty:before {
+    content: '▲';
+}
+
+/* för user edit page */ 
+#page-list-user-flags {
+    min-height:3.2vh;
+    margin:0;
+    margin-bottom: 2.4vh    
+}
+
+#flags_element {
+    flex-grow: 0;
+    margin-top:2.5vh
+}
+
+#edit-account-options-container-create {
+    background-color: var(--primary-color);
+    width: -webkit-fill-available;
+    width: -moz-available;
+    margin-bottom: 20px;
+}
+
+.edit_user_box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.edit_user_box_grid {
+    width: 60%;
+}
+
+.user_edit_container {
+    display: flex;
+    gap: 2.5vw;
+    gap: 10px;
+}
+
+.user_edit_checkbox {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    max-height: 1rem;
+}
+
+.user_edit_grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 0.2fr));
+}
+
+
+.box_user_flag {
+    display: flex;
+    gap: 0px;
+    background-color: var(--primary-color);
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    height: fit-content;
+    cursor: pointer;
+}
+
+.info_user_flag {
+    min-height: 10vh; 
+    gap: 0px;
+    background-color: var(--primary-color);
+    padding: 0;
+    box-shadow: none;
+    justify-content: center;
+    height: max-content;
+    align-items: center;
+    width: 100%;
+}
+
+#role_text::before {
+    content: 'Byt användarens role';
+}
+
+#status_text::before {
+    content: 'Byt användarens status';
+}
+
+#row-flag {
+    max-width: 21.25vw;
+}
+
+#row-info {
+    min-width: -webkit-fill-available;
+    min-width: -moz-available;
+}
+
+#dropdown-container {
+    flex-direction: row;
+}
+
+#edit-account-options-container {
+    background-color: var(--primary-color);
+    width: -webkit-fill-available;
+    width: -moz-available;
+}
+/*^ för edit user page ^*/
+
+
+/* styling för search resultat box */
+.search-results-dropdown {
+    width: 260px;
+    background-color: var(--search-box-color); 
+    min-height: 5%; 
+    justify-content: center; 
+    align-items: center;
+    position: absolute;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.search-result-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-result-item:hover {
+    background-color: var(--search-box-color-selected);
+}
+
+.username {
+    font-weight: bold;
+}
+
+.user-role {
+    font-size: 0.8em;
+    background-color: var(--background-dark);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.search-loading, .search-error, .no-users {
+    padding: 8px 12px;
+    font-style: italic;
+}
+
+.search-error {
+    color: var(--error-color);
+}
+/*^ search resultat box ^*/
+
+
+
+/* input box för beskrivningen av flaggan */
+textarea {
+    field-sizing: content;
+    max-height: 20vh;
+    resize: none;
+    /* Gömmer scrollbar för IE, Edge och Firefox */
+    -ms-overflow-style: none;  /* IE och Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Gömmer scrollbar för Chrome, Safari och Opera */
+textarea::-webkit-scrollbar {
+    display: none;
+}
+/*^ input box för beskrivningen av flaggan ^*/
+
+#menu-container {
+    width: 100%;
+    height: 100%;
+    justify-content: normal;
+    flex-direction: row;
+}
+
+#right_side {
+    padding: 20px;
+    display: flex;
+    align-items: start;
+    align-content: normal;
+    height: fit-content;
+    flex-direction: column;
+}
+
+#flag-grid {
+    padding:10px;
+    align-items: start;
+    align-content: normal;
+    height: fit-content;
+    width: fit-content; 
+    min-width: 320px;
+    margin-top:10px;
+}
+
+#view_category_details {
+    padding:20px; 
+    align-items: start; 
+    align-content: normal;
+}
+
+
+/* css styling för flag create */
+#flag-grid-create-flag {
+    padding:10px;
+    align-items: start;
+    align-content: normal;
+    height: fit-content;
+    width: fit-content; 
+    min-width: 320px;
+    margin-top:10px;
+    display: none;
+}
+
+#menu-container-create {
+    width: 100%;
+    height: 100%;
+    justify-content: normal;
+    flex-direction: row;
+}
+
+#flag-grid-create {
+    padding: 10px;
+    align-items: start;
+    align-content: normal;
+    height: fit-content;
+    width: fit-content;
+    min-width: 320px;
+    margin-top: 10px;
+}
+
+#right-side-div-container-create {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 62.5vw;
+    min-width: 300px;
+}
+
+#right_side_create {
+    padding: 20px;
+    display: flex;
+    align-items: start;
+    align-content: normal;
+    height: fit-content;
+    flex-direction: column;
+}
+
+#row-1-flag-create {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+#row-2-flag-create {
+    display: grid;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+/*^ css styling för flag create ^*/
+
+
+/* css styling för flag edit*/
+#row-1-flag {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 20px;
+}
+
+#row-2-flag {
+    display: grid;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+/*^ css styling för flag edit ^*/
+
+
+#right-side-div-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 62.5vw;
+    min-width: 300px;
+}
+
+
+/* för att anpassa styling till display */
+@media (max-width: 1085px) {
+    #dropdown-container {
+        justify-content: space-around;
+    }
+    #role_text::before {
+        content: '';
+    }
+    #status_text::before {
+        content: '';
+    }    
+    #role_text::after {
+        content: 'Byt role';
+    }
+    #status_text::after {
+        content: 'Byt status';
+    }
+}
+
+@media (max-width: 950px) {
+    #right_side {
+        padding:0;
+    }
+    .flags-grid-account {
+        grid-template-columns: 1fr;
+    }
+    #row-flag {
+        max-width: none;
+    }
+    #menu-container {
+        height: fit-content;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 862px) {
+    #dropdown-container {
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 770px) {
+    .user_edit_dropdown_box {
+        width: 100%;
+    }
+    .user_edit_dropdown {
+        width: 100%;
+    }
+}
+
+@media (max-width: 690px) {
+    #edit-status-container {
+        flex-direction: column;
+    }
+    #edit-role-container {
+        flex-direction: column;
+    }
+}
